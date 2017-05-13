@@ -13,22 +13,9 @@ namespace lightShow
     {
         HttpListener listener = new HttpListener();
 
-        private static string GetLocalIPAddress()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("Local IP Address Not Found!");
-        }
-
         public void listen()
         {
-            string url = "http://" + GetLocalIPAddress() + ":80/";
+            string url = "http://*:80/";
             listener.Prefixes.Add(url);
             Console.WriteLine("Listening to [" + url + "]");
             listener.Start();
