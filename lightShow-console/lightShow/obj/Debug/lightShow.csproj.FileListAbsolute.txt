@@ -4,3 +4,9 @@ C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\bin\Debug\lightSho
 C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\obj\Debug\lightShow.csprojResolveAssemblyReference.cache
 C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\obj\Debug\lightShow.exe
 C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\obj\Debug\lightShow.pdb
+C:\Users\Lidor\Documents\Projects\midburn\lightShow-git\lightShow\lightShow-console\lightShow\bin\Debug\lightShow.exe.config
+C:\Users\Lidor\Documents\Projects\midburn\lightShow-git\lightShow\lightShow-console\lightShow\obj\Debug\lightShow.exe
+C:\Users\Lidor\Documents\Projects\midburn\lightShow-git\lightShow\lightShow-console\lightShow\obj\Debug\lightShow.pdb
+C:\Users\Lidor\Documents\Projects\midburn\lightShow-git\lightShow\lightShow-console\lightShow\bin\Debug\lightShow.exe
+C:\Users\Lidor\Documents\Projects\midburn\lightShow-git\lightShow\lightShow-console\lightShow\bin\Debug\lightShow.pdb
+C:\Users\Lidor\Documents\Projects\midburn\lightShow-git\lightShow\lightShow-console\lightShow\obj\Debug\lightShow.csprojResolveAssemblyReference.cache

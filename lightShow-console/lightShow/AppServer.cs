@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +13,24 @@ namespace lightShow
     {
         HttpListener listener = new HttpListener();
 
+        private static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Local IP Address Not Found!");
+        }
+
         public void listen()
         {
-            listener.Prefixes.Add("http://localhost:3000/");
-            Console.WriteLine("Listening..");
+            string url = "http://" + GetLocalIPAddress() + ":80/";
+            listener.Prefixes.Add(url);
+            Console.WriteLine("Listening to [" + url + "]");
             listener.Start();
             while (true)
             {
@@ -46,8 +61,8 @@ namespace lightShow
                 output.Write(buffer, 0, buffer.Length);
                 output.Close();
             }
-            
-        } 
+
+        }
 
 
     }
