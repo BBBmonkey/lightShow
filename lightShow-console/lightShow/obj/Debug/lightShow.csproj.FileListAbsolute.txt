@@ -1,0 +1,6 @@
+C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\bin\Debug\lightShow.exe.config
+C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\bin\Debug\lightShow.exe
+C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\bin\Debug\lightShow.pdb
+C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\obj\Debug\lightShow.csprojResolveAssemblyReference.cache
+C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\obj\Debug\lightShow.exe
+C:\Users\Lidor\Documents\Projects\midburn\lightShow\lightShow\obj\Debug\lightShow.pdb
