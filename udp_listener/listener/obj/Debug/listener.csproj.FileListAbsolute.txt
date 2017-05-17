@@ -1,0 +1,6 @@
+C:\Users\Lidor\Documents\Projects\UDP_Server\listener\listener\bin\Debug\listener.exe.config
+C:\Users\Lidor\Documents\Projects\UDP_Server\listener\listener\bin\Debug\listener.exe
+C:\Users\Lidor\Documents\Projects\UDP_Server\listener\listener\bin\Debug\listener.pdb
+C:\Users\Lidor\Documents\Projects\UDP_Server\listener\listener\obj\Debug\listener.exe
+C:\Users\Lidor\Documents\Projects\UDP_Server\listener\listener\obj\Debug\listener.pdb
+C:\Users\Lidor\Documents\Projects\UDP_Server\listener\listener\obj\Debug\listener.csprojResolveAssemblyReference.cache

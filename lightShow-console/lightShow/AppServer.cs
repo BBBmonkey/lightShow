@@ -12,13 +12,18 @@ namespace lightShow
     class AppServer
     {
         HttpListener listener = new HttpListener();
+        AppUdp appUdp;
 
-        public void listen()
+        public void listen(int httpPort, int udpPort)
         {
-            string url = "http://*:80/";
+            string url = "http://*:" + httpPort + "/";
+
+            appUdp = new AppUdp(udpPort);
+
             listener.Prefixes.Add(url);
             Console.WriteLine("Listening to [" + url + "]");
             listener.Start();
+
             while (true)
             {
                 var context = listener.GetContext();
@@ -29,10 +34,11 @@ namespace lightShow
                 switch (context.Request.RawUrl)
                 {
                     case "/do-a":
-                        //do A
+                        appUdp.send(BitConverter.GetBytes(1));
                         responseString = "doing A";
                         break;
                     case "/do-b":
+                        appUdp.send(BitConverter.GetBytes(2));
                         responseString = "doing B";
                         break;
                     case "/status":
@@ -42,6 +48,7 @@ namespace lightShow
                         responseString = File.ReadAllText(htmlPath);
                         break;
                 }
+
                 var buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
                 response.ContentLength64 = buffer.Length;
                 var output = response.OutputStream;
