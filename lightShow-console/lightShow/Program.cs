@@ -16,7 +16,7 @@ namespace lightShow
             string input;
             while (true)
             {
-                Console.WriteLine("Enter UDP port:");
+                Console.WriteLine("Enter UDP port: (listener port will be set to the value you'll enter + 1)");
                 input = Console.ReadLine();
                 if (Int32.TryParse(input, out udpPort))
                 {

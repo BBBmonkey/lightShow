@@ -35,14 +35,14 @@ namespace lightShow
                 {
                     case "/do-a":
                         appUdp.send(BitConverter.GetBytes(1));
-                        responseString = "doing A";
+                        responseString = "Sent B";
                         break;
                     case "/do-b":
                         appUdp.send(BitConverter.GetBytes(2));
-                        responseString = "doing B";
+                        responseString = "Sent A";
                         break;
                     case "/status":
-                        responseString = "Everything is OK";
+                        responseString = appUdp.listen();
                         break;
                     default:
                         responseString = File.ReadAllText(htmlPath);
