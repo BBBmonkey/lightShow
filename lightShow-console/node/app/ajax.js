@@ -22,11 +22,10 @@ function doB() {
 }
 
 function status(){
+  // updating status
   send('/status', function(res){
     document.querySelector('#status').innerHTML = res;
   })
 }
 
-document.querySelector('#doA').addEventListener('click', doA)
-document.querySelector('#doB').addEventListener('click', doB)
 setInterval(status, 1000);

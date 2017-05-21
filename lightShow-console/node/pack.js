@@ -5,14 +5,14 @@ function readFile(filename){
 }
 
 function pack(){
-  var data = '<html>\n\t<head>\n\t\t<style>\n';
+  var data = '<html><head><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><style>';
   data += readFile('./app/style.css');
-  data += readFile('./app/pure.min.css');  
-  data += '\n\t\t</style>\n\t</head>\n\t<body>\n';
+  data += '</style></head><body>';
   data += readFile('./app/body.html');
-  data += '\n\t\t<script>\n';
-  data += readFile('./app/script.js');
-  data += '\n\t\t</script>\n\t</body>\n</html>';
+  data += '<script>';
+  data += readFile('./app/ajax.js');
+  data += readFile('./app/controller.js');
+  data += '</script></body></html>';
 
   fs.writeFileSync('./index.html', data);
 }

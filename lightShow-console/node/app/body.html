@@ -1,17 +1,21 @@
-<style> 
-        .button-success {
-            background: rgb(28, 184, 65); /* this is a green */
-        }
-</style>
-<div class="pure-g">
-    <div class="pure-u-1-2">
-		<button class="pure-button pure-button-primary" id="doA" value="do A">Do A</button>
+<section class="mixer">
+  <h1>Tree Controller</h1>
+  <div class="item">
+    <label>STATUS</label>
+    <div class="button-group">
+      <div class="led success"></div>
+      <div class="led mute blink"></div>
+      <div class="led"></div>
     </div>
-    <div class="pure-u-1-2">
-		<button class="pure-button button-success" id="doB" value="do B">Do B</button>
+    <label>VOL</label>
+    <div class="slide-group">
+      <input class="set-vol" id="slide_1" type="range" min="0" max="100" value="75" step="1" oninput="slide_1_val.value=value" onchange="slide_1_val.value=value"/>
     </div>
-</div>
-<div>
-  Status: <span id="status"></span>
-  Response: <span id="response"></span>
-</div>
+    <output class="vol-output" id="slide_1_val" for="slide_1"></output>
+  </div>
+  <div class="item pads" id="sampler">
+    <div class="pad-group flex-center"><a class="pad" href="#" data-sample="1" data-toggled="false"></a><a class="pad" href="#" data-sample="2" data-toggled="false"></a><a class="pad" href="#" data-sample="3" data-toggled="false"></a><a class="pad" href="#" data-sample="4" data-toggled="false"></a><a class="pad" href="#" data-sample="5" data-toggled="false"></a><a class="pad" href="#" data-sample="6" data-toggled="false"></a><a class="pad" href="#" data-sample="7" data-toggled="false"></a><a class="pad" href="#" data-sample="8" data-toggled="false"></a><a class="pad" href="#" data-sample="9" data-toggled="false"></a><a class="pad" href="#" data-sample="10" data-toggled="false"></a><a class="pad" href="#" data-sample="11" data-toggled="false"></a><a class="pad" href="#" data-sample="12" data-toggled="false"></a>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
