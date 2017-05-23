@@ -9,24 +9,36 @@ function send(path, next) {
     xhttp.send();
 }
 
-function doA() {
-    send('/do-a', function(res){
-      document.querySelector('#response').innerHTML = res;
-    })
-}
-
-function doB() {
-    send('/do-b', function(res){
-      document.querySelector('#response').innerHTML = res;
-    })
-}
-
 function status(){
   send('/status', function(res){
-    document.querySelector('#status').innerHTML = res;
+    document.querySelector('#status').classList.add('blink');
+    setTimeout(function(){
+      document.querySelector('#status').classList.remove('blink');
+    }, 1000)
   })
 }
 
-document.querySelector('#doA').addEventListener('click', doA)
-document.querySelector('#doB').addEventListener('click', doB)
-setInterval(status, 1000);
+setInterval(status, 3000);
+
+var volume = {
+  in: document.querySelector("input"), // the toggle it self
+  out: document.querySelector("output") // the output, shows the volume
+};
+
+// Volume change handler
+volume.out.value = volume.in.value;
+volume.in.addEventListener("change", function() {
+  console.log(this.value);
+});
+
+// Pads click handler
+document.querySelectorAll(".pad").forEach(function(pad) {
+  pad.addEventListener("click", function(e) {
+    e.preventDefault();
+    console.log(this);
+    padVal = this.getAttribute("data-sample");
+    send('/'+padVal, function(res){
+      console.log(res);
+    })
+  });
+});
