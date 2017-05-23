@@ -15,8 +15,7 @@ function status(){
     setTimeout(function(){
       document.querySelector('#status').classList.remove('blink');
     }, 1000)
-    test = '00001111001100110000111101010101'
-    updatePanel(test);
+    updatePanel(res);
   })
 }
 
