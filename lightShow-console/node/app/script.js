@@ -15,8 +15,21 @@ function status(){
     setTimeout(function(){
       document.querySelector('#status').classList.remove('blink');
     }, 1000)
+    test = '00001111001100110000111101010101'
+    updatePanel(test);
   })
 }
+
+function updatePanel(bitString){
+  for(var i=1; i<=bitString.length; i++){
+    var btnId = "#btn"+i;
+    elem = document.querySelector(btnId);
+    if ((bitString[i-1] == 1 && elem.classList.contains('active')== false) || (bitString[i-1] == 0 && elem.classList.contains('active')== true)) {
+        $(btnId).toggleClass('active');
+    };
+  }
+}
+
 
 setInterval(status, 3000);
 
@@ -35,7 +48,7 @@ volume.in.addEventListener("change", function() {
 document.querySelectorAll(".pad").forEach(function(pad) {
   pad.addEventListener("click", function(e) {
     e.preventDefault();
-    console.log(this);
+    $(this).toggleClass('active');
     padVal = this.getAttribute("data-sample");
     send('/'+padVal, function(res){
       console.log(res);

@@ -246,8 +246,8 @@ h1 {
   clear: both;
 }
 .pads .pad-group .pad {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   margin: 5px;
 }
 
@@ -264,7 +264,7 @@ h1 {
   min-width: 40px;
   box-shadow: 0 1px 4px rgba(255, 255, 255, 0.15) inset, 0 -20px 100px rgba(0, 0, 0, 0.25) inset, -3px -2px 5px rgba(0, 0, 0, 0.5);
 }
-.pad:active {
+.pad.active {
   box-shadow: 0 1px 5px rgba(255, 255, 255, 0.08) inset, 0 -20px 100px rgba(0, 0, 0, 0.25) inset, -2px 2px 2px rgba(0, 0, 0, 0.25), 0 10px 100px rgba(0, 0, 0, 0.2) inset;
 }
 
@@ -348,7 +348,8 @@ h1 {
     <output class="vol-output" id="slide_1_val" for="slide_1"></output>
   </div>
   <div class="item pads" id="sampler">
-    <div class="pad-group flex-center"><a class="pad" href="#" data-sample="1" data-toggled="false"></a><a class="pad" href="#" data-sample="2" data-toggled="false"></a><a class="pad" href="#" data-sample="3" data-toggled="false"></a><a class="pad" href="#" data-sample="4" data-toggled="false"></a><a class="pad" href="#" data-sample="5" data-toggled="false"></a><a class="pad" href="#" data-sample="6" data-toggled="false"></a><a class="pad" href="#" data-sample="7" data-toggled="false"></a><a class="pad" href="#" data-sample="8" data-toggled="false"></a><a class="pad" href="#" data-sample="9" data-toggled="false"></a><a class="pad" href="#" data-sample="10" data-toggled="false"></a><a class="pad" href="#" data-sample="11" data-toggled="false"></a><a class="pad" href="#" data-sample="12" data-toggled="false"></a><a class="pad" href="#" data-sample="13" data-toggled="false"></a><a class="pad" href="#" data-sample="14" data-toggled="false"></a><a class="pad" href="#" data-sample="15" data-toggled="false"></a><a class="pad" href="#" data-sample="16" data-toggled="false"></a><a class="pad" href="#" data-sample="17" data-toggled="false"></a><a class="pad" href="#" data-sample="18" data-toggled="false"></a><a class="pad" href="#" data-sample="19" data-toggled="false"></a><a class="pad" href="#" data-sample="20" data-toggled="false"></a><a class="pad" href="#" data-sample="21" data-toggled="false"></a>
+    <div class="pad-group flex-center">
+      <a class="pad" href="#" data-sample="1" data-toggled="false" id="btn1"></a><a class="pad" href="#" data-sample="2" data-toggled="false" id="btn2"></a><a class="pad" href="#" data-sample="3" data-toggled="false" id="btn3"></a><a class="pad" href="#" data-sample="4" data-toggled="false" id="btn4"></a><a class="pad" href="#" data-sample="5" data-toggled="false" id="btn5"></a><a class="pad" href="#" data-sample="6" data-toggled="false" id="btn6"></a><a class="pad" href="#" data-sample="7" data-toggled="false" id="btn7"></a><a class="pad" href="#" data-sample="8" data-toggled="false" id="btn8"></a><a class="pad" href="#" data-sample="9" data-toggled="false" id="btn9"></a><a class="pad" href="#" data-sample="10" data-toggled="false" id="btn10"></a><a class="pad" href="#" data-sample="11" data-toggled="false" id="btn11"></a><a class="pad" href="#" data-sample="12" data-toggled="false" id="btn12"></a><a class="pad" href="#" data-sample="13" data-toggled="false" id="btn13"></a><a class="pad" href="#" data-sample="14" data-toggled="false" id="btn14"></a><a class="pad" href="#" data-sample="15" data-toggled="false" id="btn15"></a><a class="pad" href="#" data-sample="16" data-toggled="false" id="btn16"></a><a class="pad" href="#" data-sample="17" data-toggled="false" id="btn17"></a><a class="pad" href="#" data-sample="18" data-toggled="false" id="btn18"></a><a class="pad" href="#" data-sample="19" data-toggled="false" id="btn19"></a><a class="pad" href="#" data-sample="20" data-toggled="false" id="btn20"></a><a class="pad" href="#" data-sample="21" data-toggled="false" id="btn21"></a><a class="pad" href="#" data-sample="22" data-toggled="false" id="btn22"></a><a class="pad" href="#" data-sample="23" data-toggled="false" id="btn23"></a><a class="pad" href="#" data-sample="24" data-toggled="false" id="btn24"></a><a class="pad" href="#" data-sample="25" data-toggled="false" id="btn25"></a><a class="pad" href="#" data-sample="26" data-toggled="false" id="btn26"></a><a class="pad" href="#" data-sample="27" data-toggled="false" id="btn27"></a><a class="pad" href="#" data-sample="28" data-toggled="false" id="btn28"></a><a class="pad" href="#" data-sample="29" data-toggled="false" id="btn29"></a><a class="pad" href="#" data-sample="30" data-toggled="false" id="btn30"></a><a class="pad" href="#" data-sample="31" data-toggled="false" id="btn31"></a><a class="pad" href="#" data-sample="32" data-toggled="false" id="btn32"></a>
     </div>
     <div class="clear"></div>
   </div>
@@ -379,8 +380,21 @@ function status(){
     setTimeout(function(){
       document.querySelector('#status').classList.remove('blink');
     }, 1000)
+    test = '00001111001100110000111101010101'
+    updatePanel(test);
   })
 }
+
+function updatePanel(bitString){
+  for(var i=1; i<=bitString.length; i++){
+    var btnId = "#btn"+i;
+    elem = document.querySelector(btnId);
+    if ((bitString[i-1] == 1 && elem.classList.contains('active')== false) || (bitString[i-1] == 0 && elem.classList.contains('active')== true)) {
+        $(btnId).toggleClass('active');
+    };
+  }
+}
+
 
 setInterval(status, 3000);
 
@@ -399,7 +413,7 @@ volume.in.addEventListener("change", function() {
 document.querySelectorAll(".pad").forEach(function(pad) {
   pad.addEventListener("click", function(e) {
     e.preventDefault();
-    console.log(this);
+    $(this).toggleClass('active');
     padVal = this.getAttribute("data-sample");
     send('/'+padVal, function(res){
       console.log(res);
